@@ -29,11 +29,7 @@ st.write(df)
 
 st.write('Poniżej znajduję ramka danych:', df, 'Powyżej znajduje się ramka danych.')
 
-# Przykład 5
-df4 = pd.DataFrame(
-    np.random.randn(20,-1)
-    columns=['a','b']
-)
+
 
 df2 = pd.DataFrame(
      np.random.randn(200, 3),
