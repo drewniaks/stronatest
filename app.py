@@ -1,20 +1,19 @@
-import numpy as np
-import altair as alt
-import pandas as pd
 import streamlit as st
+from streamlit_login_auth_ui.widgets import __login__
 
+__login__obj = __login__(auth_token = "courier_auth_token",
+                    company_name = "Shims",
+                    width = 200, height = 250,
+                    logout_button_name = 'Logout', hide_menu_bool = False,
+                    hide_footer_bool = False,
+                    lottie_url = 'https://assets2.lottiefiles.com/packages/lf20_jcikwtux.json')
 
-import yaml
-from yaml.loader import SafeLoader
-with open('../user.yaml') as file:
-    config = yaml.load(file, Loader=SafeLoader)
+LOGGED_IN= __login__obj.build_login_ui()
+username= __login__obj.get_username()
 
-authenticator = Authenticate(
-    config['credentials'],
-    config['cookie']['name'],
-    config['cookie']['key'],
-    config['cookie']['expiry_days'],
-    config['preauthorized']
-)
+if LOGGED_IN == True:
 
-name, authentication_status, username = authenticator.login('Login', 'main')
+   st.markdown("Your Streamlit Application Begins here!")
+   st.markdown(st.session_state)
+   st.write(username)
+                                      
