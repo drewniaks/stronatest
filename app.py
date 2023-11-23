@@ -2,6 +2,7 @@ import numpy as np
 import altair as alt
 import pandas as pd
 import streamlit as st
+import streamlit_authenticator as stauth
 
 st.header('Polecenie st.write')
 
